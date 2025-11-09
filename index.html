@@ -58,13 +58,35 @@
                 <img src="" alt=""> <img src="" alt=""> <img src="" alt=""> <img src="" alt="" > <img src="" alt="" >
             </article>
         </section>
-        <div id="menu">
+        <div class="escondido" id="menu">
             <ul>
-                <li>Ver perfil</li>
-                <li>Voltar ao início</li>
-                <li>Adicionar filme à lista</li>
+                <li><a href="perfil.html">Ver perfil</a></li>
+                <li><a href="index.html">Voltar ao início</a></li>
+                <li><button id="adicionar-filme">Adicionar filme à lista</button></li>
                 <li>Editar lista</li>
             </ul>
+        </div>
+        <div class="escondido" id="janela-adicionar-filme">
+            <section>
+                <h2>ADICIONAR FILME</h2>
+                <button>X</button>
+            </section>
+            <section>
+                <article>
+                    <h3>Nome do filme:</h3>
+                    <input type="text">
+                    <h3>Nota</h3>
+                    <input type="number">
+                    <h3>Comentário/resenha:</h3>
+                    <input type="text">
+                </article>
+                <article id="imagem-do-filme">
+                    <img src="" alt="">
+                    <button>Adicionar imagem</button>
+                </article>
+               
+            </section>
+            <button>Salvar filme</button>
         </div>
     </main>
     <footer>
@@ -72,5 +94,7 @@
             Feito pelos <a href="">alunos</a> de Laboratório de Programação Web do CEFET-MG
         </p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="ASSETS/JS/interacao.js"></script>
 </body>
 </html>

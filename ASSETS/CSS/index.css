@@ -176,4 +176,42 @@ footer {
     width: 100%;
 }
 
-/*falta mexer no menu*\
+/*falta mexer no menu
+vou começar agora - laura */
+
+.escondido {
+    opacity: 0%;
+    left: 200% !important; 
+}
+
+#menu {
+    position: absolute;
+    float: right;
+    left: 80%;
+    transition: left 600ms ease-in-out;
+}
+
+#janela-adicionar-filme {
+    transition: opacity 300ms ease-in-out;
+    float: left;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    display: flex; 
+    flex-direction: column;
+}
+
+#janela-adicionar-filme > section {
+    display: flex;
+    flex-direction: row;
+}
+
+#janela-adicionar-filme > section > article {
+    display: flex;
+    flex-direction: column;
+}
+
+#janela-adicionar-filme > section > article > img {
+    display: block;
+    margin: auto;
+}
