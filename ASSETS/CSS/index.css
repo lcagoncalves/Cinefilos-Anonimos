@@ -215,3 +215,65 @@ vou começar agora - laura */
     display: block;
     margin: auto;
 }
+
+
+
+/* to testando o ngc aqui, vai q vai */
+
+/* .conteudo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+}
+.img-dinamica {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+.descricao-curta {
+    font-style: italic;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.descricao-longa {
+    display: none;
+    margin-top: 15px;
+    font-size: 15px;
+    color: #d3c992;
+    text-align: left;
+    width: 100%;
+}
+
+ .lista-itens {
+    display: flex;
+    margin: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    font-family: "Gideon Roman", serif;
+    color: #d1c895;
+    max-width: 1000px;
+    padding: 0px 15px 0px 15px;
+}
+
+#pesquisa {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px 12px 20px;
+    border: 2px solid #bea964;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 2px 5px 0px rgba(190, 169, 99, 0.329);
+    color: #1d1d1d;
+    border-radius: 100px;
+} */
+ 
