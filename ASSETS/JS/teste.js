@@ -62,13 +62,14 @@ function adicionarEventosBotoes() {
           i.classList.remove('expanded');
           i.querySelector('.btn-toggle').textContent = 'Ver mais';
         });
-
         // Abre esse card
         item.classList.add('expanded');
         botao.textContent = 'Fechar';
-      }
+          // Abre esse card
+          item.classList.add('expanded');
+          botao.textContent = 'Fechar';
+        }
+      });
     });
-  });
-}
-
+  }
 
