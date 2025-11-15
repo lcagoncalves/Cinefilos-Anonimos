@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-   fetch('/Cinefilos-Anonimos-main/ASSETS/DATA/acao.json')
+   fetch('/Cinefilos-Anonimos-main/ASSETS/DATA/teste.json')
     .then(res => {
       if (!res.ok) {
         throw new Error('Erro ao carregar o JSON');
