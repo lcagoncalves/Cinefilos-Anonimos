@@ -1,10 +1,15 @@
-[
 
-{
-  "nome": "filmealeatorioaaa",
-  "imagem": "/ASSETS/IMAGENS/icon.imagem.jpg",
-  "descricaoCurta": "aaaaaaa filme mucho locoooooo",
-  "idade": "Classificação indicativa= my pinto beans",
-  "detalhes": "iamgay"
+ {
+    "filmes": [
+  {
+    "nome": "filmeAleatorio1",
+    "imagem": "/ASSETS/IMAGENS/icon.imagem.jpg",
+    "descricaoCurta": "filmeAleatorio1",
+    "idade": "Classificação indicativa= my pinto beans",
+     "detalhes": "iamgay" 
 
-}]
+    }]
+  }
+
+
+
