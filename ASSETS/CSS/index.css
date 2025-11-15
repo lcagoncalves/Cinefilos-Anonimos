@@ -288,9 +288,16 @@ vou começar agora - laura */
     border-radius: 100px;
 } 
 .btn-toggle{
-    background-color: #f74109;
+    background-color: #ff8a00;
     color: #000;
     padding-bottom: 2px ;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px 14px 5px 14px;
+    font-family: 'nexa';
+    margin-bottom: 5px;
+
+
 
 }
 
