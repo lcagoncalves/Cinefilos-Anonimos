@@ -1,4 +1,3 @@
-
  {
     "filmes": [
   {
@@ -8,8 +7,13 @@
     "idade": "Classificação indicativa= my pinto beans",
      "detalhes": "iamgay" 
 
+    },
+   {
+    "nome": "filmeAleatorio1",
+    "imagem": "/ASSETS/IMAGENS/icon.imagem.jpg",
+    "descricaoCurta": "filmeAleatorio1",
+    "idade": "Classificação indicativa= my pinto beans",
+     "detalhes": "iamgay" 
+
     }]
   }
-
-
-
