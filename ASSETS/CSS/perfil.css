@@ -106,9 +106,12 @@ main section:first-child img{
 
 
 main section:first-child h2{
-    font-size: 1.4rem;
-    margin: 5px 0 20px;
-    font-weight: bold;
+    padding: 6px 10px;  
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    margin: 6px 0; 
+    background: rgba(50, 30, 20, 0.75);
 }
 
 
@@ -137,7 +140,34 @@ main section:nth-child(3) h2::after{
     background: linear-gradient(90deg, #ff8a00, transparent);
 }
 
+main section:first-child label {
+    display: block;
+    width: 100%;
+    background: rgba(60, 35, 20, 0.75);
+    padding: 6px 10px; 
+    border-radius: 10px;
+    margin-top: 10px;
+}
 
+main section:first-child input {
+    width: 90%;
+    margin: 5px auto 10px auto;
+    display: block;
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+}
+
+main section:first-child button {
+    width: 90%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(60, 35, 20, 0.75);
+    color: white;
+    cursor: pointer;
+}
 
 main section article {
     display: flex;
