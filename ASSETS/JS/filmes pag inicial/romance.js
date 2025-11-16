@@ -20,12 +20,12 @@ function adicionarEventosImagem() {
 
 
 
-let filmesdefantasia = document.querySelector("#acao")
-fetch('ASSETS/DATA/fantasia.json').then((resposta) => {
+let filmesderomance = document.querySelector("#acao")
+fetch('ASSETS/DATA/romance.json').then((resposta) => {
 
   resposta.json().then((dados) =>
     dados.filmes.map((filme) => {
-filmesdefantasia.innerHTML += `
+filmesderomance.innerHTML += `
       <article>
    <div class="conteudo-item">
      <img src="${filme.imagem}" alt="${filme.nome}" class ="img-dinamica"/>
