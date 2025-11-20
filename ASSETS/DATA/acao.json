@@ -3,7 +3,7 @@
     "filmes": [
   {
     "id": "1",
-    "nome": "Uma Batalha Após a Outra",
+    "titulo": "Uma Batalha Após a Outra",
     "imagem": "https://image.tmdb.org/t/p/w1280/2peYXW6CoruehDnKJGMjl2NuaNB.jpgd", 
     "descricaoCurta": "Descricao curta do filme 1",
     "idade": "Classificação indicativa= my pinto beans",
@@ -11,7 +11,7 @@
     },
    {
     "id":"2",
-    "nome": "El Camino: A Breaking Bad Film",
+    "titulo": "El Camino: A Breaking Bad Film",
     "imagem": "https://image.tmdb.org/t/p/w1280/8sOZcIGJ8ihQELnhKS2qStxe1dh.jpg",
     "descricaoCurta": "Descricao curta do filme 2",
     "idade": "Classificação indicativa= my pinto beans",

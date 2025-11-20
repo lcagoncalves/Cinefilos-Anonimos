@@ -32,7 +32,6 @@ function addeventosimg_acao() {
     });
   }
 
-
 let filmesdeacao = document.querySelector("#acao")
 fetch('ASSETS/DATA/acao.json').then((resposta) => {
 

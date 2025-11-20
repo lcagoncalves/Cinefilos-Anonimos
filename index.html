@@ -11,7 +11,8 @@
 <body>
     <header>
         <h1 id="titulo">CINÉFILOS ANÔNIMOS</h1>
-        <h3>Carregar lista</h3>
+        <h3 id="carregar">Carregar lista</h3>
+        <h3 id="salvar-lista">Salvar lista</h3>
         <button id="menu-burguer">☰</button>
     </header>
     <main id="main"> <!--me cagando de medo de selecionar com a tag e cair com um vetor, coloquei um id para facilitar a vida-->
@@ -51,24 +52,35 @@
         <div class="escondido" id="janela-adicionar-filme">
             <section>
                 <h2>ADICIONAR FILME</h2>
-                <button>X</button>
+                <button id="sair"><strong>X</strong></button>
             </section>
             <section>
                 <article>
                     <h3>Nome do filme:</h3>
-                    <input type="text">
+                    <input type="text" id="input-nome-filme">
                     <h3>Nota</h3>
-                    <input type="number">
+                    <input type="number" id="input-nota-filme">
                     <h3>Comentário/resenha:</h3>
-                    <input type="text">
+                    <input type="text" id="input-resenha-filme">
+                </article>
+                <article>
+                    <h3>Categoria</h3>
+                    <select id="input-categoria-filme">
+                        <option value="acao">Ação</option>
+                        <option value="comedia">Comédia</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="romance">Romance</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="outros">Outros</option>
+                    </select>
                 </article>
                 <article id="imagem-do-filme">
                     <img src="" alt="">
-                    <button>Adicionar imagem</button>
+                    <input id="input-url-filme" type="text" placeholder="Insira a URL da imagem">
                 </article>
                
             </section>
-            <button>Salvar filme</button>
+            <button id="salvar">Salvar filme</button>
         </div>
     </main>
     <footer>
@@ -77,7 +89,7 @@
         </p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="ASSETS/JS/filmes pag inicial/acao.js"></script>
+    <script src="ASSETS/JS/filmes pag inicial/acao_dynamic.js"></script>
     <script src="ASSETS/JS/filmes pag inicial/aventura.js"></script>
     <script src="ASSETS/JS/filmes pag inicial/comedia.js"></script>
     <script src="ASSETS/JS/filmes pag inicial/romance.js"></script>
