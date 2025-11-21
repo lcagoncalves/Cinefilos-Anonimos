@@ -1,8 +1,22 @@
 // Função para adicionar o click nas imgs
-function adicionarEventosImagem() {
-  document.querySelectorAll('.card-filme').forEach(img => {
-    img.addEventListener('click', () => {
+function addeventosimg_acao() {
+  document.querySelectorAll('.img-dinamica').forEach(img => {
+    img.addEventListener('click', (vetorJSON) => {
+
       const item = img.closest('.img-toggle');
+
+      for (let i = 0; i < vetorJSON.length; i++){
+        if (item.id === vetorJSON[i].id){
+          let novaAba = document.createElement('div');
+          let mainEl = document.querySelector('#main');
+          novaAba.innerHTML = `<h2>${vetorJSON[i].titulo}</h2><button>X</button>
+                              <div>
+                                <h2>Nota:${vetorJSON[i].nota}</h2>
+                                <h2>Resenha:${vetorJSON[i].resenha}
+                              </div>`;
+          mainEl.appendChild(novaAba);
+        }
+      }
 
       if (item.classList.contains('expanded')) {
         item.classList.remove('expanded');
@@ -18,28 +32,26 @@ function adicionarEventosImagem() {
     });
   }
 
-
-
 let filmesdeacao = document.querySelector("#acao")
 fetch('ASSETS/DATA/acao.json').then((resposta) => {
 
   resposta.json().then((dados) =>
     dados.filmes.map((filme) => {
-filmesdeacao.innerHTML += `
+    filmesdeacao.innerHTML += `
       <article>
-   <div class="conteudo-item">
-     <img src="${filme.imagem}" alt="${filme.nome}" class ="img-dinamica"/>
-     <p class="descricao-curta">${filme.descricaoCurta}</p>
-    <div class="descricao-longa">
-        <h4>Classificação Indicativa</h4>
-        <p>${filme.idade}</p>
-        <h5>Outros detalhes</h5>
-        <p>${filme.detalhes}</p>
-        <article>
-      </div>
-    </div>  
-  `;
-   adicionarEventosImagem()
+          <div class="conteudo-item">
+            <img id="${filme.id}" src="${filme.imagem}" alt="${filme.titulo}" class ="img-dinamica"/>
+            <p class="descricao-curta">${filme.descricaoCurta}</p>
+            <div class="descricao-longa">
+                <h4>Classificação Indicativa</h4>
+                <p>${filme.idade}</p>
+                <h5>Outros detalhes</h5>
+                <p>${filme.detalhes}</p>
+              </div>
+            </div>  
+        </article>
+   `;
+    addeventosimg_acao(resposta);
     })
   )
 })
@@ -66,6 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-
-
+let imagensEl = document.querySelectorAll('.img-filmes')
 

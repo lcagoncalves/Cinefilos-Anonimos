@@ -188,9 +188,6 @@ footer {
     width: 100%;
 }
 
-/*falta mexer no menu
-vou começar agora - laura */
-
 .escondido {
     opacity: 0%;
     left: 200% !important; 
@@ -210,7 +207,9 @@ vou começar agora - laura */
     left: 15%;
     width: 70%;
     display: flex; 
+    top: 20%;
     flex-direction: column;
+    background-color: black;
 }
 
 #janela-adicionar-filme > section {
@@ -227,10 +226,6 @@ vou começar agora - laura */
     display: block;
     margin: auto;
 }
-
-
-
-
 
  .conteudo-item {
     display: flex;
@@ -313,3 +308,11 @@ vou começar agora - laura */
     padding-top: 100px;
 }
 
+#janela-adicionar-filme > section > button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 3%;
+    position: relative;
+    top: -7px;
+}
