@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=contrail+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+*::selection {
+    background-color: #dd822d;
+    text-shadow: 2px 2px 4px black;
+    color: aliceblue;
+
+}
+
+body {
+    background-color: #111;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background: linear-gradient(90deg, #e32b2b, #ff8a00);
+    color: white;
+    position: relative;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 100%;
+    padding-left: 40px;
+}
+
+h1 {
+    font-family: 'contrail One', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding: 20px 0 10px 0;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+main h2 {
+    font-family: 'contrail One', cursive;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    font-size: rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 30px;
+
+}
+
+main h2::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: #ff7b00;
+    margin-top: 10px;
+    width: 100vw;
+    left: 0;
+    transform: translateX(-40px);
+    position: absolute;
+    margin-top: 30px;
+    bottom: -15px;
+}
+
+p {
+    font-family: 'contrail One', cursive;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    margin: 25px 0;
+}
+
+#cadastro{
+    margin-top: 100px;
+}
+
+#email, #senha {
+    border: none;
+    border-bottom: 5px solid #ff6a00;
+    background: transparent;
+    color: white;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    width: 60%;
+    padding: 14px 8px;
+    font-size: 24px;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+input::placeholder {
+    color: rgb(180, 180, 180);
+}
+
+input:focus {
+    border-bottom: 2px solid #ff9a00;
+}
+
+#botao{
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    padding: 12px;
+    font-size: 1.6rem;
+    background: linear-gradient(90deg, #ff3c00, #ff9a00);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: 0.2s;
+    margin-top: 30px;
+    margin-right: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+}
+
+button:hover {
+    transform: scale(1.3);
+}
