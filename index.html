@@ -3,100 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinéfilos Anônimos</title>
-
-    <link rel="stylesheet" href="ASSETS/CSS/index.css">
-    <link rel="icon" href="ASSETS/IMAGENS/icon.imagem.jpg">
+    <title>CINÉFILOS ANÔNIMOS</title>
+    <link rel="stylesheet" href="/ASSETS/CSS/entrada.css">
+    <link rel="icon" href="/ASSETS/IMAGENS/icon.imagem.jpg">
 </head>
 <body>
     <header>
-        <h1 id="titulo">CINÉFILOS ANÔNIMOS</h1>
-        <h3 id="carregar">Carregar lista</h3>
-        <h3 id="salvar-lista">Salvar lista</h3>
-        <button id="menu-burguer">☰</button>
+        <h1>CINÉFILOS ANÔNIMOS</h1>
+        <h3></h3>
     </header>
-    <main id="main"> <!--me cagando de medo de selecionar com a tag e cair com um vetor, coloquei um id para facilitar a vida-->
-        <section id="favoritos">
-        <h2>FAVORITOS</h2>
-            <article>
-                <!-- <img id="img-1" src="testelpw.png" alt=""> <img class="img-filmes" src="" alt=""> <img class="img-filmes" src="" alt="" > <img class="img-filmes" src="" alt="" > <img class="img-filmes" src="" alt="" > <!-- aqui depois vai ser no js e json né? -->
-            </article> 
+    <main>
+        <section id="mascote"><img src="/ASSETS/IMAGENS/mascote (pq sim).jpg" alt=""></section>
+        <section>
+        <h3 id="greetings">Seja bem vindo!</h3>
+        <h3>faça login ou crie uma conta para continuar.</h3>
         </section>
-        <section id="acao" >
-                <h2>AÇÃO</h2>
+        <section id="botoes">
+        <a href="/PAGES/cadastro.html"><button>CRIAR CONTA</button></a>
+        <a href="/PAGES/login.html"><button>LOGIN</button></a>
         </section>
-        <section id="comedia">
-        <h2>COMÉDIA</h2>
-
-        </section>
-        <section id="aventura">
-        <h2>AVENTURA</h2>
-        </section>
-        <section id="romance">
-            <h2>ROMANCE</h2>
-        </section>
-        <section id="fantasia">
-            <h2>FANTASIA</h2>
-        </section>
-        <section id="outros">
-            <h2>OUTROS</h2>
-        </section>
-        <div class="escondido" id="menu">
-            <ul>
-                <li><a href="perfil.html">Ver perfil</a></li>
-                <li><a href="index.html">Voltar ao início</a></li>
-                <li><button id="adicionar-filme">Adicionar filme à lista</button></li>
-                <li>Editar lista</li>
-            </ul>
-        </div>
-        <div class="escondido" id="janela-adicionar-filme">
-            <section>
-                <h2>ADICIONAR FILME</h2>
-                <button id="sair"><strong>X</strong></button>
-            </section>
-            <section>
-                <article>
-                    <h3>Nome do filme:</h3>
-                    <input type="text" id="input-nome-filme">
-                    <h3>Nota</h3>
-                    <input type="number" id="input-nota-filme">
-                    <h3>Comentário/resenha:</h3>
-                    <input type="text" id="input-resenha-filme">
-                </article>
-                <article>
-                    <h3>Categoria</h3>
-                    <select id="input-categoria-filme">
-                        <option value="acao">Ação</option>
-                        <option value="comedia">Comédia</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="romance">Romance</option>
-                        <option value="fantasia">Fantasia</option>
-                        <option value="outros">Outros</option>
-                    </select>
-                </article>
-                <article id="imagem-do-filme">
-                    <img src="" alt="">
-                    <input id="input-url-filme" type="text" placeholder="Insira a URL da imagem">
-                </article>
-               
-            </section>
-            <button id="salvar">Salvar filme</button>
-        </div>
     </main>
-    <footer>
-        <p>
-            Feito pelos <a href="">alunos</a> de Laboratório de Programação Web do CEFET-MG
-        </p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="ASSETS/JS/filmes pag inicial/acao_dynamic.js"></script>
-    <script src="ASSETS/JS/filmes pag inicial/aventura.js"></script>
-    <script src="ASSETS/JS/filmes pag inicial/comedia.js"></script>
-    <script src="ASSETS/JS/filmes pag inicial/romance.js"></script>
-    <script src="ASSETS/JS/filmes pag inicial/fantasia.js"></script>
-    <script src="ASSETS/JS/filmes pag inicial/outros.js"></script>
-    <script src="ASSETS/JS/interacao.js"></script>
-</body>
-</body>
+
+    <script src="/ASSETS/JS/entrada.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </body>
 </html>

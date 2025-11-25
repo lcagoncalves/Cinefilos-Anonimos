@@ -25,6 +25,22 @@ body {
     align-items: center;
 }
 
+#mascote {
+    flex-shrink: 0;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+#mascote img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    padding: 20px; 
+    margin-left: 0px;
+}
+
 header {
     width: 100%;
     background: linear-gradient(90deg, #e32b2b, #ff8a00);
