@@ -107,7 +107,7 @@ section {
     margin-top: 100px;
 }
 
-#email, #senha {
+#email, #senha, #usuario, #confirmar {
     border: none;
     border-bottom: 5px solid #ff6a00;
     background: transparent;
