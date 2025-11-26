@@ -13,7 +13,7 @@
         <h3></h3>
     </header>
     <main>
-        <section id="mascote"><img src="ASSETS/IMAGENS/mascote (pq sim).jpg" alt=""></section>
+
         <section>
         <h3 id="greetings">Seja bem vindo!</h3>
         <h3>faça login ou crie uma conta para continuar.</h3>
