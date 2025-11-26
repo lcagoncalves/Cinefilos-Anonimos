@@ -107,6 +107,16 @@ section {
     margin-top: 100px;
 }
 
+label {
+    display: inline-flex;
+    width: 150px; 
+    text-align: right;
+    padding-right: 3px; 
+    margin-bottom: 5px; 
+    font-size: 1.6rem;
+    align-items: center;
+}
+
 #email, #senha, #usuario, #confirmar {
     border: none;
     border-bottom: 5px solid #ff6a00;

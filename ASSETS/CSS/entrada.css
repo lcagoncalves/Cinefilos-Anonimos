@@ -146,6 +146,7 @@ main section a {
     padding: 22px 0;  
     font-size: 22px; 
     margin-top: 0;
+    z-index: 10;
 }
 
 main section:first-of-type {

@@ -1,5 +1,7 @@
 <?php
-include_once("../DATA/conexao.php");
+include_once("../ASSETS/DATA/conexao.php");
+
+$mensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -9,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $confirmar = $_POST['confirmar'];
 
     if ($senha !== $confirmar) {
-        die("As senhas não coincidem!");
+        die("As senhas estão diferentes!");
     }
 
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
@@ -19,12 +21,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bind_param("sss", $usuario, $email, $senha_hash);
 
     if ($stmt->execute()) {
-        header("Location: ../principal.html");
+        header("Location: principal.html");
         exit();
     } else {
-        echo "Erro ao cadastrar!";
-    }
+      $error_message = "Erro ao cadastrar. Tente novamente."; 
+        if ($stmt->errno === 1062) {
+                $mensagem_erro = "Este E-mail ou Nome de Usuário já está cadastrado!";
+            } else {
+                $mensagem_erro = "Erro ao cadastrar. Tente novamente.";
+            }
+        }
 }
+
+
 ?>
 
 
@@ -34,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CADASTRO</title>
-    <link rel="stylesheet" href="/ASSETS/CSS/cadastro.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/cadastro.css">
     <link rel="icon" href="/ASSETS/IMAGENS/icon.imagem.jpg">
 </head>
 <body>
@@ -49,20 +58,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <section id="cadastro"> 
         
-         <label for="usuario">Digite seu nome de Usuario"</label>
+         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario" required placeholder="Digite seu Usuario"> <br>
 
-        <label for="email">Digite seu E-mail</label>
+        <label for="email">E-mail:</label>
         <input type="email" name="email" id="email" required placeholder="Digite seu E-mail"> <br>
 
 
-         <label for="senha">Digite sua senha"</label>
-        <input type="password" name="senha" id="senha" required placeholder="Digite sua senha"> <br>
+         <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" required minlength="8" equired placeholder="Digite sua senha"> <br>
         <p>minimo de 8 caracteres, sem espaço</p>
 
 
-         <label for="confirmar">confirme sua senha"</label>
-        <input type="password" name="confirmar" id="confirmar" required placeholder="confirme sua senha"> <br>
+         <label for="confirmar">Senha:</label>
+        <input type="password" name="confirmar" id="confirmar" required minlength="8" required placeholder="confirme sua senha"> <br>
         <p>minimo de 8 caracteres, sem espaço</p>
     </section>
 
