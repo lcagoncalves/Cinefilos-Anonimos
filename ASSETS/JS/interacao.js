@@ -6,6 +6,13 @@ let inputResenhaEl = document.querySelector('#input-resenha-filme');
 let inputURLEl = document.querySelector('#input-url-filme');
 let inputCategoriaEl = document.querySelector('#input-categoria-filme');
 let carregarEl = document.querySelector('#carregar');
+let categoriaFavoritos = document.querySelector('#favoritos');
+let categoriaAcao = document.querySelector('#acao');
+let categoriaComedia = document.querySelector('#comedia');
+let categoriaAventura = document.querySelector('#aventura');
+let categoriaRomance = document.querySelector('#romance')
+let categoriaFantasia = document.querySelector('#fantasia');
+let categoriaOutros = document.querySelector('#outros');
 
 $('#menu-burguer').on("click", function(){
     $('#menu').toggleClass('escondido');
@@ -16,12 +23,13 @@ $('#adicionar-filme').on("click", function(){
 });
 
 $('#salvar').on("click", function(){
+
     const novoFilme = {
-        id: vetorFilmes.length-1,
+        id: vetorFilmes.length,
         titulo: inputNomeEl.value,
         nota: inputNotaEl.value,
         resenha: inputResenhaEl.value,
-        imagem: inputURLEl.value,
+        url: inputURLEl.value,
         categoria: inputCategoriaEl.value
     };
 
@@ -33,16 +41,43 @@ $('#salvar').on("click", function(){
     inputNotaEl.value = '';
     inputResenhaEl.value = '';
     inputURLEl.value = '';
-    if (inputCategoriaEl) inputCategoriaEl.value = 'acao';
+
+    adicionaFilmesNaPagina(vetorFilmes);
 
     // notifica outras partes da página para atualizarem a lista
     window.dispatchEvent(new CustomEvent('filmeAdicionado', { detail: novoFilme }));
 });
 
 function adicionaFilmesNaPagina(vetor){
+
+    categoriaAcao.innerHTML = "<h2>AÇÃO</h2>";
+    categoriaAventura.innerHTML = "<h2>AVENTURA</h2>";
+    categoriaFavoritos.innerHTML = "<h2>FAVORITOS</h2>";
+    categoriaFantasia.innerHTML = "<h2>FANTASIA</h2>";
+    categoriaComedia.innerHTML = "<h2>COMÉDIA</h2>";
+    categoriaRomance.innerHTML = "<h2>ROMANCE</h2>";
+    categoriaOutros.innerHTML = "<h2>OUTROS</h2>";
+
     for (let i = 0; i < vetor.length; i++){
-        let conteudo = `<img src="${vetor.url}" id="${vetor.id}">`;
-        let novaImgEl 
+        let conteudo = `<img src="${vetor[i].url}" id="${vetor[i].id}">`;
+        let novoFilmeEl = document.createElement('article');  
+        novoFilmeEl.innerHTML = conteudo;
+        
+        if(vetor[i].categoria == 'favoritos'){
+            categoriaFavoritos.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'acao'){
+            categoriaAcao.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'aventura'){
+            categoriaAventura.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'comedia'){
+            categoriaComedia.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'romance'){
+            categoriaRomance.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'fantasia'){
+            categoriaRomance.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'outros'){
+            categoriaRomance.appendChild(novoFilmeEl);
+        }
     }
 }
 
@@ -52,4 +87,11 @@ $('#sair').on("click", function(){
 
 $('#salvar-lista').on("click", function(){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes))
+})
+
+$('#carregar').on("click",function(){
+    vetorFilmes = localStorage.getItem('filmes');
+    vetorFilmes = JSON.parse(vetorFilmes)
+
+    adicionaFilmesNaPagina(vetorFilmes)
 })
