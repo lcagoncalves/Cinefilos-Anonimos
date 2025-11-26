@@ -16,21 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO cadastro (Usuario, Email, Senha) VALUES (?, ?, ?)";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("sss", $usuario, $email, $senha_hash);
-
     if ($stmt->execute()) {
         header("Location: principal.html");
         exit();
     } else {
-      $error_message = "Erro ao cadastrar. Tente novamente."; 
-        if ($stmt->errno === 1062) {
-                $mensagem_erro = "Este E-mail ou Nome de Usuário já está cadastrado!";
-            } else {
-                $mensagem_erro = "Erro ao cadastrar. Tente novamente.";
-            }
-        }
+     
 }
 
 
