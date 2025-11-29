@@ -316,3 +316,39 @@ footer {
     position: relative;
     top: -7px;
 }
+
+#dados-do-filme {
+    transition: opacity 300ms ease-in-out;
+    float: left;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    display: flex; 
+    top: 20%;
+    flex-direction: column;
+    background-color: black;
+}
+
+#dados-do-filme > section {
+    display: flex;
+    flex-direction: row;
+}
+
+#dados-do-filme > section > article {
+    display: flex;
+    flex-direction: column;
+}
+
+#dados-do-filme > section > article > img {
+    display: block;
+    margin: auto;
+}
+
+#dados-do-filme > section > button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 3%;
+    position: relative;
+    top: -7px;
+}

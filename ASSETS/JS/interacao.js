@@ -13,6 +13,15 @@ let categoriaAventura = document.querySelector('#aventura');
 let categoriaRomance = document.querySelector('#romance')
 let categoriaFantasia = document.querySelector('#fantasia');
 let categoriaOutros = document.querySelector('#outros');
+let imagemPreview = document.querySelector('#preview-imagem');
+let tituloDadosEl = document.querySelector('#dados-titulo');
+
+let teste = document.querySelectorAll('section');
+
+
+inputURLEl.addEventListener("change", function(){
+    imagemPreview.src = inputURLEl.value;
+})
 
 $('#menu-burguer').on("click", function(){
     $('#menu').toggleClass('escondido');
@@ -25,7 +34,7 @@ $('#adicionar-filme').on("click", function(){
 $('#salvar').on("click", function(){
 
     const novoFilme = {
-        id: vetorFilmes.length,
+        id: vetorFilmes.length - 1,
         titulo: inputNomeEl.value,
         nota: inputNotaEl.value,
         resenha: inputResenhaEl.value,
@@ -59,7 +68,7 @@ function adicionaFilmesNaPagina(vetor){
     categoriaOutros.innerHTML = "<h2>OUTROS</h2>";
 
     for (let i = 0; i < vetor.length; i++){
-        let conteudo = `<img src="${vetor[i].url}" id="${vetor[i].id}">`;
+        let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" id="${vetor[i].id}">`;
         let novoFilmeEl = document.createElement('article');  
         novoFilmeEl.innerHTML = conteudo;
         
@@ -83,10 +92,16 @@ function adicionaFilmesNaPagina(vetor){
 
 $('#sair').on("click", function(){
     $('#janela-adicionar-filme').toggleClass('escondido');
+    inputNomeEl.value = '';
+    inputNotaEl.value = '';
+    inputResenhaEl.value = '';
+    inputURLEl.value = '';
 });
 
 $('#salvar-lista').on("click", function(){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes))
+    let imagensFilmesEl = document.querySelectorAll('.imagem-filme');
+    console.log(imagensFilmesEl)
 })
 
 $('#carregar').on("click",function(){
@@ -94,4 +109,11 @@ $('#carregar').on("click",function(){
     vetorFilmes = JSON.parse(vetorFilmes)
 
     adicionaFilmesNaPagina(vetorFilmes)
+    
 })
+
+for (let imagemEl of imagensFilmesEl) {
+    imagemEl.addEventListener('click', function(){
+    
+    })
+}
