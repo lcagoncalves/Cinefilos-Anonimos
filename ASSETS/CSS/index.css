@@ -110,7 +110,6 @@ main h2 {
     text-transform: uppercase;
     padding: 8px 10px;
     margin-bottom: 10px;
-    position: relative;
 }
 
 main h2::after {
@@ -139,7 +138,7 @@ main section article {
 
 main section article img {
     width: 200px;
-    height: 130px;
+    height: 300px;
     margin: 10px, 15px, 10px,15px;
     background: #555;
     border-radius: 4px;
@@ -149,7 +148,6 @@ main section article img {
     cursor: pointer;
     display: block;
     display:flex; 
-
 }
 
 
@@ -283,32 +281,28 @@ footer {
   max-height: 500px;
 }
 
-#acao {
+#filmes-acao, #filmes-sugestoes, #filmes-aventura, #filmes-romance, #filmes-fantasia, #filmes-outros, #filmes-comedia, #filmes-favoritos {
     display: flex;
     flex-wrap: wrap;      
     gap: 20px;            
-    justify-content: flex-start;    
+    justify-content: flex-start;
+    margin: auto;
 }
-#acao article {
-    margin-right: 50px;
-    display: flex ;
-    width: 150px; 
-    padding-top: 100px;
-}
-#aventura {
-    display: flex;
-    flex-wrap: wrap;      
-    gap: 20px;            
-    justify-content: flex-start;    
-}
-#aventura article {
-    margin-right: 50px;
-    display: flex ;
-    width: 150px; 
-    padding-top: 100px;
+#acao article, #sugestoes article, #aventura article, #romance article, #fantasia article, #outros article, #comedia article, #favoritos article {
+    margin: auto;
+    width: 200px; 
+    padding-top: 20px;
 }
 
 #janela-adicionar-filme > section > button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 3%;
+    position: relative;
+    top: -7px;
+}
+#janela-adicionar-filme> button {
     background-color: black;
     color: white;
     border: none;

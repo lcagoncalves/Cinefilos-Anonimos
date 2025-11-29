@@ -1,23 +1,61 @@
-let vetorFilmes = [];
+let vetorFilmes = [{id: 0,
+        titulo: "Star Trek: Além da Escuridão",
+        nota: 4,
+        resenha: "Em 2259, a nave estelar USS Enterprise estudava uma cultura primitiva do planeta Nibiru, quando o capitão James T. Kirk resolveu deter um vulcão em erupção que ameaçava destruir tudo. Na ação, ele desrespeita a Primeira Diretriz da Frota Estelar para salvar Spock. Por causa disso, é julgado e perde o comando da nave para o Almirante Christopher Pike que, contudo, consegue colocá-lo como seu Imediato. Logo em seguida ficam sabendo da ameaça terrorista representada pelo renegado John Harrison, que após realizar um atentado em Londres, foge para o planeta natal dos Klingon, Kronos. A Enterprise parte para lá para capturar o bandido, sabendo que essa investida poderá representar a guerra contra aquele povo guerreiro. Além disso, Harrison se revelará como o super-humano aperfeiçoado geneticamente, Khan.",
+        url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT7v3WHoEBxdOSPQ8WCo0W9CV1tWrXC0xGn4kVxTE2r-mJBbvN8",
+        categoria: "sugestoes"}, {id: 1,
+        titulo: "Zootopia 2",
+        nota: 4,
+        resenha: "Os detetives Judy Hopps e Nick Wilde se encontram na trilha sinuosa de um réptil misterioso que chega a Zootopia e vira a metrópole dos mamíferos de cabeça para baixo.",
+        url: "https://www.themoviedb.org/t/p/w1280/fthvYnjERbXt3ILjLjHpPNd5IVJ.jpg",
+        categoria: "sugestoes"}, {id: 2,
+        titulo: "Wicked",
+        nota: 3,
+        resenha: "Elphaba é uma jovem como outra qualquer do Reino de Oz, mas incompreendida por causa de sua pele verde incomum e por ainda não ter descoberto seu verdadeiro poder. Sua rotina é tranquila e pouco interessante, mas ao iniciar seus estudos na Universidade de Shiz, seu destino encontra Glinda, uma jovem popular e ambiciosa, nascida em berço de ouro, que só quer garantir seus privilégios e ainda não conhece sua verdadeira alma. As duas iniciam uma inesperada amizade; no entanto, suas diferenças, como o desejo de Glinda pela popularidade e poder, e a determinação de Elphaba em permanecer fiel a si mesma, entram no caminho, o que pode perpetuar no futuro de cada uma e em como as pessoas de Oz as enxergam.",
+        url: "https://image.tmdb.org/t/p/w1280/qcaKkLwIXCAxJtpetVYHniCvLZj.jpg",
+        categoria: "sugestoes"}, {id: 3,
+        titulo: "Star Wsrs: Episódio IV - Uma Nova Esperança",
+        nota: 5,
+        resenha: "A princesa Leia é mantida refém pelas forças imperiais comandadas por Darth Vader. Luke Skywalker e o capitão Han Solo precisam libertá-la e restaurar a liberdade e a justiça na galáxia.",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBBTGgVQq5SADx7QduQTcJZnNO2I9qHUD0iTavGzrb5Piy9PyOig0xSBuHGhBsgIT8xNs_sw&s=10",
+        categoria: "sugestoes"}, {id: 4,
+        titulo: "Matrix - 1999",
+        nota: 4,
+        resenha: "Um hacker aprende com os misteriosos rebeldes sobre a verdadeira natureza de sua realidade e seu papel na guerra contra seus controladores.",
+        url: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_.jpg",
+        categoria: "sugestoes"}, {id: 5,
+        titulo: "Superman - 2025",
+        nota: 4,
+        resenha: "Superman, um jovem repórter de Metrópolis, embarca em uma jornada para reconciliar sua herança kryptoniana com sua criação humana como Clark Kent.",
+        url: "https://www.themoviedb.org/t/p/w1280/xeZ8oG6W60fEPf9yCjERUXiHRBF.jpg",
+        categoria: "sugestoes"}, {id: 6,
+        titulo: "Lego: Batman - O Filme",
+        nota: 5,
+        resenha: "No spin-off de Uma Aventura Lego, Batman (Will Arnett) descobre que adotou acidentalmente um garoto órfão. Ele se torna ninguém menos que seu ajudante Robin (Michael Cera). A dupla formada pelo arrogante Homem-Morcego e o seu empolgado ajudante deve combater o crime e prender o Coringa (Zach Galifianakis).",
+        url: "https://www.themoviedb.org/t/p/w1280/jUZAAKHfHwZj8bEvghaY9MrGCRG.jpg",
+        categoria: "sugestoes"} ];
 
 let inputNomeEl = document.querySelector('#input-nome-filme');
 let inputNotaEl = document.querySelector('#input-nota-filme');
 let inputResenhaEl = document.querySelector('#input-resenha-filme');
 let inputURLEl = document.querySelector('#input-url-filme');
 let inputCategoriaEl = document.querySelector('#input-categoria-filme');
-let carregarEl = document.querySelector('#carregar');
-let categoriaFavoritos = document.querySelector('#favoritos');
-let categoriaAcao = document.querySelector('#acao');
-let categoriaComedia = document.querySelector('#comedia');
-let categoriaAventura = document.querySelector('#aventura');
-let categoriaRomance = document.querySelector('#romance')
-let categoriaFantasia = document.querySelector('#fantasia');
-let categoriaOutros = document.querySelector('#outros');
+let categoriaFavoritos = document.querySelector('#filmes-favoritos');
+let categoriaAcao = document.querySelector('#filmes-acao');
+let categoriaComedia = document.querySelector('#filmes-comedia');
+let categoriaAventura = document.querySelector('#filmes-aventura');
+let categoriaRomance = document.querySelector('#filmes-romance')
+let categoriaFantasia = document.querySelector('#filmes-fantasia');
+let categoriaOutros = document.querySelector('#filmes-outros');
+let categoriaSugestoes = document.querySelector('#filmes-sugestoes');
 let imagemPreview = document.querySelector('#preview-imagem');
 let tituloDadosEl = document.querySelector('#dados-titulo');
-
-let teste = document.querySelectorAll('section');
-
+let notaDadosEl = document.querySelector('#sessao-nota');
+let resenhaDadosEl = document.querySelector('#sessao-resenha');
+let categoriaDadosEl = document.querySelector('#sessao-categoria');
+let imagemDadosEl = document.querySelector('#imagem-detalhes');
+let imagensFilmesEl;
+let botaoSalvarEl = document.querySelector('#salvar');
 
 inputURLEl.addEventListener("change", function(){
     imagemPreview.src = inputURLEl.value;
@@ -31,10 +69,23 @@ $('#adicionar-filme').on("click", function(){
     $('#janela-adicionar-filme').toggleClass('escondido');
 });
 
-$('#salvar').on("click", function(){
+$('#sair-dados').on("click", function(){
+    $('#dados-do-filme').toggleClass('escondido');
+})
+let controle = localStorage.getItem('filmes');
+
+if(controle == null){
+    localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
+}
+
+adicionaFilmesNaPagina(vetorFilmes);
+
+imagensFilmesEl = document.querySelectorAll('.imagem-filme');
+
+botaoSalvarEl.addEventListener("click", function(){
 
     const novoFilme = {
-        id: vetorFilmes.length - 1,
+        id: vetorFilmes.length,
         titulo: inputNomeEl.value,
         nota: inputNotaEl.value,
         resenha: inputResenhaEl.value,
@@ -52,20 +103,18 @@ $('#salvar').on("click", function(){
     inputURLEl.value = '';
 
     adicionaFilmesNaPagina(vetorFilmes);
-
-    // notifica outras partes da página para atualizarem a lista
-    window.dispatchEvent(new CustomEvent('filmeAdicionado', { detail: novoFilme }));
 });
 
 function adicionaFilmesNaPagina(vetor){
-
-    categoriaAcao.innerHTML = "<h2>AÇÃO</h2>";
-    categoriaAventura.innerHTML = "<h2>AVENTURA</h2>";
-    categoriaFavoritos.innerHTML = "<h2>FAVORITOS</h2>";
-    categoriaFantasia.innerHTML = "<h2>FANTASIA</h2>";
-    categoriaComedia.innerHTML = "<h2>COMÉDIA</h2>";
-    categoriaRomance.innerHTML = "<h2>ROMANCE</h2>";
-    categoriaOutros.innerHTML = "<h2>OUTROS</h2>";
+    categoriaAcao.innerHTML = '';
+    categoriaFantasia.innerHTML = '';
+    categoriaFavoritos.innerHTML = '';
+    categoriaComedia.innerHTML = '';
+    categoriaRomance.innerHTML = '';
+    categoriaOutros.innerHTML = '';
+    categoriaSugestoes.innerHTML = '';
+    categoriaAventura.innerHTML = '';
+    categoriaAcao.innerHTML = '';
 
     for (let i = 0; i < vetor.length; i++){
         let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" id="${vetor[i].id}">`;
@@ -85,7 +134,9 @@ function adicionaFilmesNaPagina(vetor){
         } else if(vetor[i].categoria == 'fantasia'){
             categoriaRomance.appendChild(novoFilmeEl);
         } else if(vetor[i].categoria == 'outros'){
-            categoriaRomance.appendChild(novoFilmeEl);
+            categoriaOutros.appendChild(novoFilmeEl);
+        } else if(vetor[i].categoria == 'sugestoes'){
+            categoriaSugestoes.appendChild(novoFilmeEl);
         }
     }
 }
@@ -100,20 +151,16 @@ $('#sair').on("click", function(){
 
 $('#salvar-lista').on("click", function(){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes))
-    let imagensFilmesEl = document.querySelectorAll('.imagem-filme');
-    console.log(imagensFilmesEl)
 })
 
-$('#carregar').on("click",function(){
-    vetorFilmes = localStorage.getItem('filmes');
-    vetorFilmes = JSON.parse(vetorFilmes)
-
-    adicionaFilmesNaPagina(vetorFilmes)
-    
-})
+console.log(imagensFilmesEl);
 
 for (let imagemEl of imagensFilmesEl) {
-    imagemEl.addEventListener('click', function(){
-    
-    })
+  imagemEl.addEventListener('click', function(){
+    $('#dados-do-filme').toggleClass('escondido');
+    tituloDadosEl.innerHTML = vetorFilmes[imagemEl.id].titulo;
+    notaDadosEl.innerHTML = vetorFilmes[imagemEl.id].nota;
+    resenhaDadosEl.innerHTML = vetorFilmes[imagemEl.id].resenha;
+    imagemDadosEl.src = vetorFilmes[imagemEl.id].url;
+  });
 }
