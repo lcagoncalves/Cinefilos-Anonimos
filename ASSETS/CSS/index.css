@@ -180,10 +180,9 @@ footer {
     border-top: 5px solid #dd5d36;
     padding: 15px 20px 15px 20px;
     margin-top: 40px;
-    margin-left: auto;
-    margin-right: 0%;
     border-radius: 0px 0px 10px 10px;
     width: 100%;
+    position: sticky;
 }
 
 .escondido {
@@ -196,6 +195,12 @@ footer {
     float: right;
     left: 80%;
     transition: left 600ms ease-in-out;
+    background: linear-gradient(90deg, #e32b2ba6, #ff8800af);
+    height:auto;
+    padding: 30px;
+    top: -40px;
+    width: 76%;
+    padding-bottom: 1320px;
 }
 
 #janela-adicionar-filme {
@@ -345,4 +350,50 @@ footer {
     margin: 3%;
     position: relative;
     top: -7px;
+}
+
+#janela-info {
+    transition: opacity 300ms ease-in-out;
+    float: left;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    display: flex; 
+    top: 20%;
+    flex-direction: column;
+    background-color: black;
+}
+
+#janela-info > section {
+    display: flex;
+    flex-direction: row;
+}
+
+#janela-info > section > article {
+    display: flex;
+    flex-direction: column;
+}
+
+#janela-info > section > article > img {
+    display: block;
+    margin: auto;
+}
+
+#janela-info > section > button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 3%;
+    position: relative;
+    top: -7px;
+}
+
+#menu > ul > li > button, #menu > ul > li > a {
+    background-color: #fc0c0c00;
+    border: none;
+    width: 200px;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
 }

@@ -67,10 +67,20 @@ $('#menu-burguer').on("click", function(){
 
 $('#adicionar-filme').on("click", function(){
     $('#janela-adicionar-filme').toggleClass('escondido');
+    $('#menu').toggleClass('escondido');
 });
 
 $('#sair-dados').on("click", function(){
     $('#dados-do-filme').toggleClass('escondido');
+})
+
+$('#sair-info').on("click", function(){
+   $('#janela-info').toggleClass('escondido'); 
+})
+
+$('#info').on("click", function(){
+    $('#janela-info').toggleClass('escondido');
+    $('#menu').toggleClass('escondido');
 })
 let controle = localStorage.getItem('filmes');
 
