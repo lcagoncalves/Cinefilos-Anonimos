@@ -122,7 +122,13 @@ section {
 }
 
 input::placeholder {
-    color: rgb(180, 180, 180);
+    color: rgb(78, 73, 73);
+    opacity: 1;         
+    font-style: italic;
+}
+
+input:focus::placeholder {
+    color: transparent;
 }
 
 input:focus {

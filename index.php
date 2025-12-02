@@ -20,7 +20,7 @@
         </section>
         <section id="botoes">
         <a href="PAGES/cadastro.php"><button>CRIAR CONTA</button></a>
-        <a href="/PAGES/login.php"><button>LOGIN</button></a>
+        <a href="PAGES/login.php"><button>LOGIN</button></a>
         </section>
     </main>
 

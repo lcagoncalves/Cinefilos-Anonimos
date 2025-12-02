@@ -1,9 +1,9 @@
 <?php
-include_once("../ASSETS/DATA/conexao.php");
+session_start();
 
-$mensagem = "";
+if(isset($_POST['submit'])){
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    include_once('config.php');
 
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
@@ -11,28 +11,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $confirmar = $_POST['confirmar'];
 
     if ($senha !== $confirmar) {
-        die("As senhas estão diferentes!");
-    }
-
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO cadastro (Usuario, Email, Senha) VALUES (?, ?, ?)";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("sss", $usuario, $email, $senha_hash);
-
-    if ($stmt->execute()) {
-        header("Location: principal.html");
+        header("Location: cadastro.php");
         exit();
-    } else {
-      $error_message = "Erro ao cadastrar. Tente novamente."; 
-        if ($stmt->errno === 1062) {
-                $mensagem_erro = "Este E-mail ou Nome de Usuário já está cadastrado!";
+    } else{
+
+    
+
+    $sql_check = "SELECT * FROM cadastro WHERE email = '$email' OR usuario = '$usuario'";
+        $resultado_check = mysqli_query($conexao, $sql_check);
+
+        if (mysqli_num_rows($resultado_check) > 0) {
+           header("Location: cadastro.php");
+                   exit();
+        } else {
+
+
+            $sql = "INSERT INTO cadastro(usuario, email, senha) 
+                    VALUES ('$usuario', '$email', '$senha')";
+
+            if (mysqli_query($conexao, $sql)) {
+                header("Location: principal.php");
+                exit();
             } else {
-                $mensagem_erro = "Erro ao cadastrar. Tente novamente.";
+                $erro = "Erro ao salvar no banco.";
             }
         }
+    }
 }
-
 
 ?>
 
@@ -52,9 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </header>
 <main>
 
-     <h2 id="login">Cadastre-se</h2>
 
-    <form method="POST">
+     <h2 id="login">Cadastre-se</h2>
+    
+<form action="cadastro.php" method="POST">
+
 
     <section id="cadastro"> 
         
@@ -76,9 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </section>
 
     <section id="botao">
-    <button type="submit">Confirmar</button>
+    <button type="submit" name="submit">Confirmar</button>
     </section>
-    </form>
+</form>
 
 </main>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
