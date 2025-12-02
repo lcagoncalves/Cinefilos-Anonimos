@@ -78,5 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-let imagensEl = document.querySelectorAll('.img-filmes')
 
