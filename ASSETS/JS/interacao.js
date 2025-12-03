@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+    carregarFilmes();
+});
+
 let vetorFilmes = [{id: 0,
         titulo: "Star Trek: Além da Escuridão",
         nota: "77% - Avaliação dos Usuários",
@@ -168,11 +172,29 @@ if(controle == null){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
 }
 
-adicionaFilmesNaPagina(vetorFilmes);
 
-imagensFilmesEl = document.querySelectorAll('.imagem-filme');
+
+function ativarClicks() {
+    imagensFilmesEl = document.querySelectorAll('.imagem-filme');
+
+    imagensFilmesEl.forEach(img => {
+        img.addEventListener("click", function() {
+            $('#dados-do-filme').removeClass('escondido');
+            let id = img.dataset.id;
+            let filme = vetorFilmes.find(f => f.id == id);
+
+            tituloDadosEl.innerHTML = filme.titulo;
+            notaDadosEl.innerHTML = filme.nota;
+            resenhaDadosEl.innerHTML = filme.resenha;
+            imagemDadosEl.src = filme.url;
+        });
+    });
+}
+
 
 botaoSalvarEl.addEventListener("click", function(){
+
+    
 
     const novoFilme = {
         id: vetorFilmes.length,
@@ -183,14 +205,13 @@ botaoSalvarEl.addEventListener("click", function(){
         categoria: inputCategoriaEl.value
     };
 
-    novoFilme.id = vetorFilmes.length;
     vetorFilmes.push(novoFilme);
     localStorage.setItem("filmes", JSON.stringify(vetorFilmes));
 
     salvarNoBanco(novoFilme);
 
-
     adicionaFilmesNaPagina(vetorFilmes);
+
 
     // fechar modal e limpar campos
     $('#janela-adicionar-filme').addClass('escondido');
@@ -198,6 +219,8 @@ botaoSalvarEl.addEventListener("click", function(){
     inputNotaEl.value = '';
     inputResenhaEl.value = '';
     inputURLEl.value = '';
+    inputCategoriaEl.value = '';
+
 
 });
 
@@ -210,10 +233,9 @@ function adicionaFilmesNaPagina(vetor){
     categoriaOutros.innerHTML = '';
     categoriaSugestoes.innerHTML = '';
     categoriaAventura.innerHTML = '';
-    categoriaAcao.innerHTML = '';
 
     for (let i = 0; i < vetor.length; i++){
-        let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" id="${vetor[i].id}">`;
+        let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" data-id="${vetor[i].id}">`;
         let novoFilmeEl = document.createElement('article');  
         novoFilmeEl.innerHTML = conteudo;
         
@@ -235,6 +257,8 @@ function adicionaFilmesNaPagina(vetor){
             categoriaSugestoes.appendChild(novoFilmeEl);
         }
     }
+
+    ativarClicks();
 }
 
 $('#sair').on("click", function(){
@@ -249,26 +273,35 @@ $('#salvar-lista').on("click", function(){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes))
 })
 
-console.log(imagensFilmesEl);
-
-for (let imagemEl of imagensFilmesEl) {
-  imagemEl.addEventListener('click', function(){
-    $('#dados-do-filme').toggleClass('escondido');
-    tituloDadosEl.innerHTML = vetorFilmes[imagemEl.id].titulo;
-    notaDadosEl.innerHTML = vetorFilmes[imagemEl.id].nota;
-    resenhaDadosEl.innerHTML = vetorFilmes[imagemEl.id].resenha;
-    imagemDadosEl.src = vetorFilmes[imagemEl.id].url;
-  });
-}
 
 function salvarNoBanco(filme) {
     $.ajax({
         url: "../PAGES/salvar.php",
         method: "POST",
-        data: JSON.stringify(filme),
-        contentType: "application/json",
+        data: {
+            titulo: filme.titulo,
+            nota: filme.nota,
+            resenha: filme.resenha,
+            url: filme.url,
+            categoria: filme.categoria
+        },
         success: function(resposta) {
             console.log("Servidor:", resposta);
+        }
+    });
+
+
+}
+function carregarFilmes() {
+    $.ajax({
+        url: "../PAGES/carregar.php",
+        method: "GET",
+        dataType: "json",
+        success: function(filmes) {
+
+            vetorFilmes = filmes;
+
+            adicionaFilmesNaPagina(vetorFilmes);
         }
     });
 }

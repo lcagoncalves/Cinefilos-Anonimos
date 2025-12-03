@@ -1,41 +1,36 @@
-function salvarFilme(filme) {
-
-    $.ajax({
-        url: "../PAGES/salvar.php",
-        method: "POST",
-        data: JSON.stringify(filme),
-        contentType: "application/json",
-
-        success: function(res) {
-
-            console.log("Resposta do servidor:", res);
-        },
-
-        error: function() {
-            console.log("Erro ao salvar.");
-        }
-    });
-
-}
-
 function carregarFilmes() {
-
     $.ajax({
         url: "../PAGES/carregar.php",
         method: "GET",
-        dataType: "json",
+        success: function(resposta) {
 
-        success: function(filmes) {
-            console.log("Filmes carregados:", filmes);
-            montarLista(filmes);
-        },
+            let dados = JSON.parse(resposta);
 
-        error: function() {
-            console.log("Erro ao carregar filmes.");
+            if (dados.length > 0) {
+
+                vetorFilmes = dados;
+            } 
+            else {
+
+                let controle = localStorage.getItem('filmes');
+
+                if(controle == null){
+                    localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
+                } else {
+                    vetorFilmes = JSON.parse(controle);
+                }
+
+
+            }
+            adicionaFilmesNaPagina(vetorFilmes);
+            ativarClicks();
         }
+
     });
 
+
 }
+
 
 function montarLista(filmes) {
 

@@ -1,30 +1,26 @@
 <?php
 session_start();
-include_once("config.php");
+require "../config.php";
 
 if (!isset($_SESSION['id'])) {
-    echo "erro";
-    exit();
+    echo "erro-sessao";
+    exit;
 }
 
-$idUsuario = $_SESSION['id'];
+$id = $_SESSION['id'];
 
-$dados = json_decode(file_get_contents("php://input"), true);
+$titulo = $_POST['titulo'];
+$nota = $_POST['nota'];
+$resenha = $_POST['resenha'];
+$url = $_POST['url'];
+$categoria = $_POST['categoria'];
 
-$nome       = $conexao->real_escape_string($dados["nome"]);
-$categoria  = $conexao->real_escape_string($dados["categoria"]);
-$nota       = (int)$dados["nota"];
-$comentario = $conexao->real_escape_string($dados["comentario"]);
-$imagem     = $conexao->real_escape_string($dados["imagem"]);
-
-$sql = "INSERT INTO dados (id, nome, categoria, nota, comentario, imagem)
-VALUES ('$idUsuario', '$nome', '$categoria', '$nota', '$comentario', '$imagem')";
+$sql = "INSERT INTO dados (id_usuario, nome, nota, categoria, comentario, imagem) 
+VALUES ('$id', '$titulo', '$nota', '$categoria', '$resenha', '$url')";
 
 if (mysqli_query($conexao, $sql)) {
     echo "salvo";
-} 
-
-else {
+} else {
     echo "erro";
 }
 ?>

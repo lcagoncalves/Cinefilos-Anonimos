@@ -1,22 +1,28 @@
 <?php
 session_start();
-include_once("config.php");
+require "../config.php";
 
 if (!isset($_SESSION['id'])) {
     echo json_encode([]);
-    exit();
+    exit;
 }
 
-$idUsuario = $_SESSION['id'];
+$id = $_SESSION['id'];
 
-
-$sql = "SELECT * FROM dados WHERE id='$idUsuario'";
-$result = mysqli_query($conexao, $sql);
+$sql = "SELECT * FROM dados WHERE id_usuario = '$id'";
+$result = $conexao->query($sql);
 
 $filmes = [];
 
-while ($linha = mysqli_fetch_assoc($result)) {
-    $filmes[] = $linha;
+while ($row = mysqli_fetch_assoc($result)) {
+    $filmes[] = [
+    "id" => $row["id"],
+    "titulo" => $row["nome"],
+    "nota" => $row["nota"],
+    "categoria" => $row["categoria"],
+    "resenha" => $row["comentario"],
+    "url" => $row["imagem"]
+];
 }
 
 echo json_encode($filmes);

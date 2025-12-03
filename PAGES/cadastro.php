@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
                     VALUES ('$usuario', '$email', '$senha')";
 
             if (mysqli_query($conexao, $sql)) {
-                header("Location: principal.php");
+                header("Location: login.php");
                 exit();
             } else {
                 $erro = "Erro ao salvar no banco.";
