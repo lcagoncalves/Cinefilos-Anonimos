@@ -94,7 +94,7 @@
         <div id="dados-do-filme" class="escondido">
             <section>
                 <h2 id="dados-titulo">TITULO TESTE</h2>
-                <button id="sair-dados">| X |</button>
+                <button id="sair-dados">X</button>
             </section>
             <section>
                 <article>
