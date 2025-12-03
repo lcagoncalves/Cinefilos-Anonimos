@@ -1,6 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    carregarFilmes();
-});
 
 let vetorFilmes = [{id: 0,
         titulo: "Star Trek: Além da Escuridão",
@@ -56,68 +53,33 @@ let vetorFilmes = [{id: 0,
         nota: "85% - Avaliação dos Usuários",
         resenha: "Após Thanos dizimar metade da vida no universo, os heróis sobreviventes, liderados por Capitão América e Viúva Negra, se reúnem para tentar reverter o dano. Eles conseguem viajar no tempo para coletar as Joias do Infinito de diferentes épocas, mas o plano é descoberto por uma versão passada de Thanos. O confronto final ocorre no presente, com um sacrifício de um dos Vingadores que salva o universo, mas não sem perdas significativas. " ,
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/9fRX8UKlIW7Lb9GqNsJVakWWFCi.jpg",
-        categoria: "acao" },
+        categoria: "sugestoes" },
 
         {id: 8,
         titulo: "Indiana Jones e A Relíquia do Destino",
         nota: "65% - Avaliação dos Usuários",
         resenha: "Encontrando-se em uma nova era, aproximando-se da aposentadoria, Indy luta para se encaixar em um mundo que parece tê-lo superado. Mas quando os tentáculos de um mal muito familiar retornam na forma de um antigo rival, Indy deve colocar seu chapéu e pegar seu chicote mais uma vez para garantir que um antigo e poderoso artefato não caia nas mãos erradas.",
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/2vTsUU93ZHJlvpQukmvIWABD3HL.jpg",
-        categoria: "acao" },
+        categoria: "sugestoes" },
 
          {id: 9,
         titulo: "Rambo IV ",
         nota: "87% - Avaliação dos Usuários",
         resenha: "John Rambo se recolheu no norte da Tailândia, onde pilota um barco no Rio Salween. Na fronteira com a Birmânia, a mais longa guerra civil acontece entre birmaneses e a tribo Karen, um conflito de quase 60 anos. Mas Rambo tem uma vida simples e solitária nas montanhas e selvas e há muito tempo desistiu de lutar. Até que um grupo de missionários de direitos humanos o procura pedindo sua ajuda. O grupo logo é capturado e um pastor contrata um grupo de mercenários para resgatá-los. Apesar de ter sido um soldado treinado para matar, Rambo reluta em se envolver em conflitos violentos após tanto tempo. Suas feridas cicatrizaram, mas ainda estão visíveis.",
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/2NbmBzgG1chI3fS31HHfZEEsApw.jpg",
-        categoria: "acao" },
+        categoria: "sugestoes" },
 
           {id: 10,
         titulo: "007 Cassino Royale ",
         nota: "76% - Avaliação dos Usuários",
         resenha: "Depois de obter o status 00 e uma licença para matar, o agente secreto James Bond parte em sua primeira missão como 007. Bond precisa derrotar um banqueiro privado que financia terroristas em um jogo de pôquer de alto risco no Casino Royale, Montenegro.",
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/7b3qmLlvm2lvJ2gxsKQ42S3RTKR.jpg",
-        categoria: "acao" },
-
-         {id: 11,
-        titulo: "Comando para matar",
-        nota: "65% - Avaliação dos Usuários",
-        resenha: "John Matrix é um coronel aposentado há dez anos que vive para Jenny Matrix, sua filha. Repentinamente, ela é sequestrada por Arius, um ex-ditador latino-americano que espera recuperar o poder e que, para isto, chantageia Matrix ordenando-o que mate o presidente Velasquez, o atual mandatário. Mas John foge do avião e tem só onze horas para resgatar Jenny antes que descubram que escapou e não pretende cometer nenhum assassinato. Na sua tentativa, só encontra obstáculos pelo caminho e a única pessoa que fica do seu lado é Cindy, uma aeromoça.",
-        url: "https://image.tmdb.org/t/p/w600_and_h900_face/c02d619U138A3eBt3ZhMPrlwiaM.jpg",
-        categoria: "acao" },
-
-           {id: 12,
-        titulo: "",
-        nota: "% - Avaliação dos Usuários",
-        resenha: "John Matrix é um coronel aposentado há dez anos que vive para Jenny Matrix, sua filha. Repentinamente, ela é sequestrada por Arius, um ex-ditador latino-americano que espera recuperar o poder e que, para isto, chantageia Matrix ordenando-o que mate o presidente Velasquez, o atual mandatário. Mas John foge do avião e tem só onze horas para resgatar Jenny antes que descubram que escapou e não pretende cometer nenhum assassinato. Na sua tentativa, só encontra obstáculos pelo caminho e a única pessoa que fica do seu lado é Cindy, uma aeromoça.",
-        url: "https://image.tmdb.org/t/p/w600_and_h900_face/c02d619U138A3eBt3ZhMPrlwiaM.jpg",
-        categoria: "aventura" },
-
-        {id: 13,
-        titulo: "",
-        nota: "% - Avaliação dos Usuários",
-        resenha: "John Matrix é um coronel aposentado há dez anos que vive para Jenny Matrix, sua filha. Repentinamente, ela é sequestrada por Arius, um ex-ditador latino-americano que espera recuperar o poder e que, para isto, chantageia Matrix ordenando-o que mate o presidente Velasquez, o atual mandatário. Mas John foge do avião e tem só onze horas para resgatar Jenny antes que descubram que escapou e não pretende cometer nenhum assassinato. Na sua tentativa, só encontra obstáculos pelo caminho e a única pessoa que fica do seu lado é Cindy, uma aeromoça.",
-        url: "https://image.tmdb.org/t/p/w600_and_h900_face/c02d619U138A3eBt3ZhMPrlwiaM.jpg",
-        categoria: "aventura" },
-
-        {id: 14,
-        titulo: "",
-        nota: "% - Avaliação dos Usuários",
-        resenha: "John Matrix é um coronel aposentado há dez anos que vive para Jenny Matrix, sua filha. Repentinamente, ela é sequestrada por Arius, um ex-ditador latino-americano que espera recuperar o poder e que, para isto, chantageia Matrix ordenando-o que mate o presidente Velasquez, o atual mandatário. Mas John foge do avião e tem só onze horas para resgatar Jenny antes que descubram que escapou e não pretende cometer nenhum assassinato. Na sua tentativa, só encontra obstáculos pelo caminho e a única pessoa que fica do seu lado é Cindy, uma aeromoça.",
-        url: "https://image.tmdb.org/t/p/w600_and_h900_face/c02d619U138A3eBt3ZhMPrlwiaM.jpg",
-        categoria: "aventura" },
-
-        {id: 15,
-        titulo: "",
-        nota: "% - Avaliação dos Usuários",
-        resenha: "John Matrix é um coronel aposentado há dez anos que vive para Jenny Matrix, sua filha. Repentinamente, ela é sequestrada por Arius, um ex-ditador latino-americano que espera recuperar o poder e que, para isto, chantageia Matrix ordenando-o que mate o presidente Velasquez, o atual mandatário. Mas John foge do avião e tem só onze horas para resgatar Jenny antes que descubram que escapou e não pretende cometer nenhum assassinato. Na sua tentativa, só encontra obstáculos pelo caminho e a única pessoa que fica do seu lado é Cindy, uma aeromoça.",
-        url: "https://image.tmdb.org/t/p/w600_and_h900_face/c02d619U138A3eBt3ZhMPrlwiaM.jpg",
-        categoria: "aventura" },
-        
-
-
-
+        categoria: "sugestoes" },
      ];
+
+document.addEventListener("DOMContentLoaded", function () {
+    carregarFilmes();
+});
 
 let inputNomeEl = document.querySelector('#input-nome-filme');
 let inputNotaEl = document.querySelector('#input-nota-filme');
@@ -140,6 +102,7 @@ let categoriaDadosEl = document.querySelector('#sessao-categoria');
 let imagemDadosEl = document.querySelector('#imagem-detalhes');
 let imagensFilmesEl;
 let botaoSalvarEl = document.querySelector('#salvar');
+let salvarListaEl = document.querySelector('#salvar-lista');
 
 inputURLEl.addEventListener("change", function(){
     imagemPreview.src = inputURLEl.value;
@@ -172,16 +135,36 @@ if(controle == null){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
 }
 
+vetorFilmes = localStorage.getItem('filmes');
+vetorFilmes = JSON.parse(vetorFilmes);
+
+adicionaFilmesNaPagina(vetorFilmes);
+
+$('#carregar-lista').on("click", function(){
+	  alert('teste')
+})
+
 
 
 function ativarClicks() {
     imagensFilmesEl = document.querySelectorAll('.imagem-filme');
 
     imagensFilmesEl.forEach(img => {
+
+        img.replaceWith(img.cloneNode(true));
+    });
+    imagensFilmesEl = document.querySelectorAll('.imagem-filme');
+
+    imagensFilmesEl.forEach(img => {
         img.addEventListener("click", function() {
             $('#dados-do-filme').removeClass('escondido');
-            let id = img.dataset.id;
-            let filme = vetorFilmes.find(f => f.id == id);
+
+            const id = Number(img.dataset.id); 
+            const filme = vetorFilmes.find(f => Number(f.id) === id);
+            if (!filme) {
+                console.warn("Filme não encontrado para id:", id);
+                return;
+            }
 
             tituloDadosEl.innerHTML = filme.titulo;
             notaDadosEl.innerHTML = filme.nota;
@@ -190,6 +173,11 @@ function ativarClicks() {
         });
     });
 }
+
+salvarListaEl.addEventListener("click", function(){
+    alert("teste");
+    sincronizarComBanco();
+});
 
 
 botaoSalvarEl.addEventListener("click", function(){
@@ -207,8 +195,6 @@ botaoSalvarEl.addEventListener("click", function(){
 
     vetorFilmes.push(novoFilme);
     localStorage.setItem("filmes", JSON.stringify(vetorFilmes));
-
-    salvarNoBanco(novoFilme);
 
     adicionaFilmesNaPagina(vetorFilmes);
 
@@ -257,8 +243,6 @@ function adicionaFilmesNaPagina(vetor){
             categoriaSugestoes.appendChild(novoFilmeEl);
         }
     }
-
-    ativarClicks();
 }
 
 $('#sair').on("click", function(){
@@ -269,29 +253,7 @@ $('#sair').on("click", function(){
     inputURLEl.value = '';
 });
 
-$('#salvar-lista').on("click", function(){
-    localStorage.setItem('filmes', JSON.stringify(vetorFilmes))
-})
 
-
-function salvarNoBanco(filme) {
-    $.ajax({
-        url: "../PAGES/salvar.php",
-        method: "POST",
-        data: {
-            titulo: filme.titulo,
-            nota: filme.nota,
-            resenha: filme.resenha,
-            url: filme.url,
-            categoria: filme.categoria
-        },
-        success: function(resposta) {
-            console.log("Servidor:", resposta);
-        }
-    });
-
-
-}
 function carregarFilmes() {
     $.ajax({
         url: "../PAGES/carregar.php",
@@ -299,9 +261,36 @@ function carregarFilmes() {
         dataType: "json",
         success: function(filmes) {
 
-            vetorFilmes = filmes;
+            if (filmes && filmes.length > 0) {
+                vetorFilmes = filmes;
+                localStorage.setItem('filmes', JSON.stringify(filmes));
+            } else {
+                const local = localStorage.getItem('filmes');
+                if (local) vetorFilmes = JSON.parse(local);
+            }
 
             adicionaFilmesNaPagina(vetorFilmes);
+            ativarClicks();
+        },
+        error: function() {
+            const local = localStorage.getItem('filmes');
+            if (local) vetorFilmes = JSON.parse(local);
+            adicionaFilmesNaPagina(vetorFilmes);
+            ativarClicks();
+        }
+    });
+}
+
+
+function sincronizarComBanco() {
+    const lista = localStorage.getItem('filmes');
+
+    $.ajax({
+        url: "../PAGES/salvar.php",
+        method: "POST",
+        data: { lista: lista },
+        success: function(r) {
+            console.log("Servidor:", r);
         }
     });
 }
