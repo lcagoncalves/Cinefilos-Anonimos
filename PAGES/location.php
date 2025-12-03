@@ -19,7 +19,7 @@ session_start();
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
 
-
+    $_SESSION['erro'] = "E-mail ou a senha estão diferentes. tente novamente.";
 
     header('location: login.php');
     }

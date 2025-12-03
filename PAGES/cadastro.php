@@ -11,6 +11,7 @@ if(isset($_POST['submit'])){
     $confirmar = $_POST['confirmar'];
 
     if ($senha !== $confirmar) {
+        $_SESSION['erro'] = "As senhas estão diferentes";
         header("Location: cadastro.php");
         exit();
     } else{
@@ -21,6 +22,7 @@ if(isset($_POST['submit'])){
         $resultado_check = mysqli_query($conexao, $sql_check);
 
         if (mysqli_num_rows($resultado_check) > 0) {
+           $_SESSION['erro'] = "O E-mail ou o usuário já foram cadastrados. Tente novamente";
            header("Location: cadastro.php");
                    exit();
         } else {
