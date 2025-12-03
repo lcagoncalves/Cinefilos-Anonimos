@@ -76,11 +76,18 @@ let vetorFilmes = [{id: 0,
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/7b3qmLlvm2lvJ2gxsKQ42S3RTKR.jpg",
         categoria: "sugestoes" },
 
-				   {id: 10,
+				   {id: 11,
         titulo: "son of batman",
         nota: "71% - Avaliação dos Usuários",
         resenha: "Em Son of Batman, Damian Wayne, filho de Bruce Wayne, descobre que é herdeiro do legado de seu pai e enfrenta seu próprio destino como Robin. Ele entra em conflito com a Liga das Sombras e seu pai, Ra’s al Ghul, que planeja dominar Gotham. Damian precisa escolher entre lealdade à família e fazer o que é certo, aprendendo o valor da justiça. No fim, ele se une a Bruce e se compromete a proteger Gotham como o novo Robin.",
         url: "https://media.themoviedb.org/t/p/w300_and_h450_face/oPfc2Q0FZ1QObSLhGq9mAv7L2GV.jpg",
+        categoria: "sugestoes" },
+
+				    {id: 12,
+        titulo: "a casa de cera",
+        nota: "60% - Avaliação dos Usuários",
+        resenha: "Um grupo de amigos da faculdade está a caminho de um jogo de futebol quando, em uma cidade fantasma, o carro quebra e são obrigados a procurar auxílio no único lugar que está aberto: o museu de cera local. Eles ficam impressionados com a perfeição das esculturas e logo percebem a razão de tanto realismo. Aterrorizados, fogem para não se transformarem em peças de museu.",
+        url: "https://media.themoviedb.org/t/p/w300_and_h450_face/ElZtqGvOxzI1SBR3cCmFkwKQu1.jpg",
         categoria: "sugestoes" },
      ];
 
