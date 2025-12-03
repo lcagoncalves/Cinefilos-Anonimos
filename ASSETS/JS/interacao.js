@@ -116,7 +116,7 @@ let categoriaDadosEl = document.querySelector('#sessao-categoria');
 let imagemDadosEl = document.querySelector('#imagem-detalhes');
 let imagensFilmesEl;
 let botaoSalvarEl = document.querySelector('#salvar');
-let salvarListaEl = document.querySelector('#salvar-lista');
+
 
 inputURLEl.addEventListener("change", function(){
     imagemPreview.src = inputURLEl.value;
