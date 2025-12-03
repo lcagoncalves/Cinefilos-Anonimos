@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,6 @@
 <body>
     <header>
         <h1 id="titulo">CINÉFILOS ANÔNIMOS</h1>
-        <h3 id="salvar-lista">Salvar lista</h3>
         <button id="menu-burguer">☰</button>
     </header>
     <main id="main">
@@ -55,8 +53,6 @@
         </section>
         <div class="escondido" id="menu">
             <ul>
-                <li><a href="/PAGES/perfil.html">Ver perfil</a></li>
-                <li><a href="/PAGES/principal.html">Voltar ao início</a></li>
                 <li><button id="adicionar-filme">Adicionar filme à lista</button></li>
                 <li><button id="info">Informações</button></li>
             </ul>
@@ -121,7 +117,7 @@
                     <h3>Uso:</h3>
                     <ul>
                         <li>Adicione filmes a lista através do menu que pode ser encontrado ao abrir o navegador</li>
-                        <li>Salve sua lista</li>
+                        <li>Sua lista salva automaticamente</li>
                         <li>Organize seus filmes!</li>
                     </ul>
                 </article>
