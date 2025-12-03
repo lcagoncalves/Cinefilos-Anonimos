@@ -16,13 +16,13 @@ $filmes = [];
 
 while ($row = mysqli_fetch_assoc($result)) {
     $filmes[] = [
-    "id" => $row["id"],
-    "titulo" => $row["nome"],
-    "nota" => $row["nota"],
-    "categoria" => $row["categoria"],
-    "resenha" => $row["comentario"],
-    "url" => $row["imagem"]
-];
+        "id" => $row["id"], 
+        "titulo" => $row["nome"],
+        "nota" => $row["nota"],
+        "categoria" => $row["categoria"],
+        "resenha" => $row["comentario"],
+        "url" => $row["imagem"]
+    ];
 }
 
 echo json_encode($filmes);
