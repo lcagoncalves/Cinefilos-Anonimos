@@ -172,7 +172,7 @@ adicionaFilmesNaPagina(vetorFilmes);
 
 imagensFilmesEl = document.querySelectorAll('.imagem-filme');
 
-botaoSalvarEl.addEventListener("hover", function(){
+botaoSalvarEl.addEventListener("click", function(){
 
     const novoFilme = {
         id: vetorFilmes.length,
@@ -183,7 +183,14 @@ botaoSalvarEl.addEventListener("hover", function(){
         categoria: inputCategoriaEl.value
     };
 
+    novoFilme.id = vetorFilmes.length;
     vetorFilmes.push(novoFilme);
+    localStorage.setItem("filmes", JSON.stringify(vetorFilmes));
+
+    salvarNoBanco(novoFilme);
+
+
+    adicionaFilmesNaPagina(vetorFilmes);
 
     // fechar modal e limpar campos
     $('#janela-adicionar-filme').addClass('escondido');
@@ -192,7 +199,6 @@ botaoSalvarEl.addEventListener("hover", function(){
     inputResenhaEl.value = '';
     inputURLEl.value = '';
 
-    adicionaFilmesNaPagina(vetorFilmes);
 });
 
 function adicionaFilmesNaPagina(vetor){
@@ -222,7 +228,7 @@ function adicionaFilmesNaPagina(vetor){
         } else if(vetor[i].categoria == 'romance'){
             categoriaRomance.appendChild(novoFilmeEl);
         } else if(vetor[i].categoria == 'fantasia'){
-            categoriaRomance.appendChild(novoFilmeEl);
+            categoriaFantasia.appendChild(novoFilmeEl);
         } else if(vetor[i].categoria == 'outros'){
             categoriaOutros.appendChild(novoFilmeEl);
         } else if(vetor[i].categoria == 'sugestoes'){
@@ -253,4 +259,16 @@ for (let imagemEl of imagensFilmesEl) {
     resenhaDadosEl.innerHTML = vetorFilmes[imagemEl.id].resenha;
     imagemDadosEl.src = vetorFilmes[imagemEl.id].url;
   });
+}
+
+function salvarNoBanco(filme) {
+    $.ajax({
+        url: "../PAGES/salvar.php",
+        method: "POST",
+        data: JSON.stringify(filme),
+        contentType: "application/json",
+        success: function(resposta) {
+            console.log("Servidor:", resposta);
+        }
+    });
 }

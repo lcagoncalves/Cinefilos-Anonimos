@@ -1,10 +1,10 @@
 <?php
 
 
-$dbHost = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cinefilos_anonimos";
+$dbHost = "sql100.infinityfree.com";
+$dbUsername = "if0_40581647";
+$dbPassword = "leticia302010";
+$dbName = "if0_40581647_cinefilos";
 
 $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 

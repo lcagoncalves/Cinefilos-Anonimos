@@ -12,17 +12,17 @@ session_start();
 
     $result = $conexao->query($sql);
 
-    if(mysqli_num_rows($result) < 1 ){
+    if ($result->num_rows == 1) {
 
-    unset($_SESSION['email']);
-    unset($_SESSION['senha']);
+        $usuario = mysqli_fetch_assoc($result);
 
-    $_SESSION['erro'] = "E-mail ou a senha estão diferentes. tente novamente.";
+        $_SESSION['id'] = $usuario['id'];
 
-    header('location: login.php');
-    }
-    else{
-    header('Location: principal.php');
+        header('Location: principal.php');
+    } 
+    else {
+        $_SESSION['erro'] = "E-mail ou senha incorretos.";
+        header('Location: login.php');
     }
 
 
