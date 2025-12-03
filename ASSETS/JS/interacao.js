@@ -75,6 +75,13 @@ let vetorFilmes = [{id: 0,
         resenha: "Depois de obter o status 00 e uma licença para matar, o agente secreto James Bond parte em sua primeira missão como 007. Bond precisa derrotar um banqueiro privado que financia terroristas em um jogo de pôquer de alto risco no Casino Royale, Montenegro.",
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/7b3qmLlvm2lvJ2gxsKQ42S3RTKR.jpg",
         categoria: "sugestoes" },
+
+				   {id: 10,
+        titulo: "son of batman",
+        nota: "71% - Avaliação dos Usuários",
+        resenha: "Em Son of Batman, Damian Wayne, filho de Bruce Wayne, descobre que é herdeiro do legado de seu pai e enfrenta seu próprio destino como Robin. Ele entra em conflito com a Liga das Sombras e seu pai, Ra’s al Ghul, que planeja dominar Gotham. Damian precisa escolher entre lealdade à família e fazer o que é certo, aprendendo o valor da justiça. No fim, ele se une a Bruce e se compromete a proteger Gotham como o novo Robin.",
+        url: "https://media.themoviedb.org/t/p/w300_and_h450_face/oPfc2Q0FZ1QObSLhGq9mAv7L2GV.jpg",
+        categoria: "sugestoes" },
      ];
 
 document.addEventListener("DOMContentLoaded", function () {
