@@ -7,10 +7,10 @@ let vetorFilmes = [{id: 0,
         categoria: "sugestoes"}, 
         
         {id: 1,
-        titulo: "Caçadores de Trolls: A Ascensão dos Titãs",
-        nota: "76% - Avaliação dos Usuários",
-        resenha: "Em Caçadores de Trolls: A Ascensão dos Titãs, Jim e seus amigos enfrentam a Arcane Order, que deseja despertar os Titãs para destruir e recriar o mundo. Eles se dividem em equipes para impedir o ritual e recuperar artefatos mágicos, incluindo Excalibur e a Krohnisfere. Após uma grande batalha, Jim derrota o vilão Bellroc e salva Arcadia Oaks. No final, ele usa a Krohnisfere para voltar no tempo e recomeçar a história, passando o manto de Trollhunter para Toby..",
-        url: "https://media.themoviedb.org/t/p/w300_and_h450_face/ypPh0GKzLIP9vyO8eFmu4jCzkHi.jpg",
+        titulo: "Zootopia 2",
+        nota: "77% - Avaliação dos Usuários",
+        resenha: "Os detetives Judy Hopps e Nick Wilde se encontram na trilha sinuosa de um réptil misterioso que chega a Zootopia e vira a metrópole dos mamíferos de cabeça para baixo.",
+        url: "https://www.themoviedb.org/t/p/w1280/fthvYnjERbXt3ILjLjHpPNd5IVJ.jpg",
         categoria: "sugestoes"},
         
         {id: 2,
@@ -75,20 +75,6 @@ let vetorFilmes = [{id: 0,
         resenha: "Depois de obter o status 00 e uma licença para matar, o agente secreto James Bond parte em sua primeira missão como 007. Bond precisa derrotar um banqueiro privado que financia terroristas em um jogo de pôquer de alto risco no Casino Royale, Montenegro.",
         url: "https://image.tmdb.org/t/p/w600_and_h900_face/7b3qmLlvm2lvJ2gxsKQ42S3RTKR.jpg",
         categoria: "sugestoes" },
-
-				   {id: 11,
-        titulo: "son of batman",
-        nota: "71% - Avaliação dos Usuários",
-        resenha: "Em Son of Batman, Damian Wayne, filho de Bruce Wayne, descobre que é herdeiro do legado de seu pai e enfrenta seu próprio destino como Robin. Ele entra em conflito com a Liga das Sombras e seu pai, Ra’s al Ghul, que planeja dominar Gotham. Damian precisa escolher entre lealdade à família e fazer o que é certo, aprendendo o valor da justiça. No fim, ele se une a Bruce e se compromete a proteger Gotham como o novo Robin.",
-        url: "https://media.themoviedb.org/t/p/w300_and_h450_face/oPfc2Q0FZ1QObSLhGq9mAv7L2GV.jpg",
-        categoria: "sugestoes" },
-
-				    {id: 12,
-        titulo: "a casa de cera",
-        nota: "60% - Avaliação dos Usuários",
-        resenha: "Um grupo de amigos da faculdade está a caminho de um jogo de futebol quando, em uma cidade fantasma, o carro quebra e são obrigados a procurar auxílio no único lugar que está aberto: o museu de cera local. Eles ficam impressionados com a perfeição das esculturas e logo percebem a razão de tanto realismo. Aterrorizados, fogem para não se transformarem em peças de museu.",
-        url: "https://media.themoviedb.org/t/p/w300_and_h450_face/ElZtqGvOxzI1SBR3cCmFkwKQu1.jpg",
-        categoria: "sugestoes" },
      ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -117,7 +103,6 @@ let imagemDadosEl = document.querySelector('#imagem-detalhes');
 let imagensFilmesEl;
 let botaoSalvarEl = document.querySelector('#salvar');
 
-
 inputURLEl.addEventListener("change", function(){
     imagemPreview.src = inputURLEl.value;
 })
@@ -132,7 +117,7 @@ $('#adicionar-filme').on("click", function(){
 });
 
 $('#sair-dados').on("click", function(){
-    $('#dados-do-filme').toggleClass('escondido');
+    $('#dados-do-filme').addClass('escondido');
 })
 
 $('#sair-info').on("click", function(){
@@ -149,36 +134,14 @@ if(controle == null){
     localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
 }
 
-vetorFilmes = localStorage.getItem('filmes');
-vetorFilmes = JSON.parse(vetorFilmes);
-
-adicionaFilmesNaPagina(vetorFilmes);
-
-$('#carregar-lista').on("click", function(){
-	  alert('teste')
-})
-
-
-
 function ativarClicks() {
-    imagensFilmesEl = document.querySelectorAll('.imagem-filme');
-
-    imagensFilmesEl.forEach(img => {
-
-        img.replaceWith(img.cloneNode(true));
-    });
     imagensFilmesEl = document.querySelectorAll('.imagem-filme');
 
     imagensFilmesEl.forEach(img => {
         img.addEventListener("click", function() {
             $('#dados-do-filme').removeClass('escondido');
-
-            const id = Number(img.dataset.id); 
-            const filme = vetorFilmes.find(f => Number(f.id) === id);
-            if (!filme) {
-                console.warn("Filme não encontrado para id:", id);
-                return;
-            }
+            let id = img.dataset.id;
+            let filme = vetorFilmes.find(f => f.id == id);
 
             tituloDadosEl.innerHTML = filme.titulo;
             notaDadosEl.innerHTML = filme.nota;
@@ -187,11 +150,6 @@ function ativarClicks() {
         });
     });
 }
-
-salvarListaEl.addEventListener("click", function(){
-    alert("teste");
-    sincronizarComBanco();
-});
 
 
 botaoSalvarEl.addEventListener("click", function(){
@@ -206,12 +164,13 @@ botaoSalvarEl.addEventListener("click", function(){
         url: inputURLEl.value,
         categoria: inputCategoriaEl.value
     };
-
-    vetorFilmes.push(novoFilme);
+   vetorFilmes.push(novoFilme);
     localStorage.setItem("filmes", JSON.stringify(vetorFilmes));
 
-    adicionaFilmesNaPagina(vetorFilmes);
+    salvarNoBanco(novoFilme);
 
+
+    adicionaFilmesNaPagina(vetorFilmes);
 
     // fechar modal e limpar campos
     $('#janela-adicionar-filme').addClass('escondido');
@@ -234,11 +193,12 @@ function adicionaFilmesNaPagina(vetor){
     categoriaSugestoes.innerHTML = '';
     categoriaAventura.innerHTML = '';
 
-    for (let i = 0; i < vetor.length; i++){
-        let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" data-id="${vetor[i].id}">`;
+    for (let i = 0; i < vetor.length; i++) {
+
+         let conteudo = `<img src="${vetor[i].url}" class="imagem-filme" data-id="${vetor[i].id}">`;
         let novoFilmeEl = document.createElement('article');  
         novoFilmeEl.innerHTML = conteudo;
-        
+
         if(vetor[i].categoria == 'favoritos'){
             categoriaFavoritos.appendChild(novoFilmeEl);
         } else if(vetor[i].categoria == 'acao'){
@@ -257,15 +217,42 @@ function adicionaFilmesNaPagina(vetor){
             categoriaSugestoes.appendChild(novoFilmeEl);
         }
     }
+    ativarClicks();
 }
 
-$('#sair').on("click", function(){
+
+$('#sair').on("click", function () {
     $('#janela-adicionar-filme').toggleClass('escondido');
     inputNomeEl.value = '';
     inputNotaEl.value = '';
     inputResenhaEl.value = '';
     inputURLEl.value = '';
 });
+
+
+$('#salvar-lista').on("click", function () {
+    localStorage.setItem('filmes', JSON.stringify(vetorFilmes));
+});
+
+
+function salvarNoBanco(filme) {
+
+    $.ajax({
+        url: "../PAGES/salvar.php",
+        method: "POST",
+        data: {
+            titulo: filme.titulo,
+            nota: filme.nota,
+            resenha: filme.resenha,
+            url: filme.url,
+            categoria: filme.categoria
+        },
+
+        success: function (resposta) {
+            console.log("Servidor:", resposta);
+        }
+    });
+}
 
 
 function carregarFilmes() {
@@ -275,36 +262,9 @@ function carregarFilmes() {
         dataType: "json",
         success: function(filmes) {
 
-            if (filmes && filmes.length > 0) {
-                vetorFilmes = filmes;
-                localStorage.setItem('filmes', JSON.stringify(filmes));
-            } else {
-                const local = localStorage.getItem('filmes');
-                if (local) vetorFilmes = JSON.parse(local);
-            }
+            vetorFilmes = filmes;
 
             adicionaFilmesNaPagina(vetorFilmes);
-            ativarClicks();
-        },
-        error: function() {
-            const local = localStorage.getItem('filmes');
-            if (local) vetorFilmes = JSON.parse(local);
-            adicionaFilmesNaPagina(vetorFilmes);
-            ativarClicks();
-        }
-    });
-}
-
-
-function sincronizarComBanco() {
-    const lista = localStorage.getItem('filmes');
-
-    $.ajax({
-        url: "../PAGES/salvar.php",
-        method: "POST",
-        data: { lista: lista },
-        success: function(r) {
-            console.log("Servidor:", r);
         }
     });
 }
