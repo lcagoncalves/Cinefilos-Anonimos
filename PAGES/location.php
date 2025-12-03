@@ -1,6 +1,6 @@
 <?php
 session_start();
-  //print_r($_REQUEST)
+
 
   if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
 
@@ -11,8 +11,6 @@ session_start();
     $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
 
     $result = $conexao->query($sql);
-    //print_r($$sql);
-    //print_r($result);
 
     if(mysqli_num_rows($result) < 1 ){
 
