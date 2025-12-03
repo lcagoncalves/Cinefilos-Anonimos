@@ -9,18 +9,27 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_SESSION['id'];
 
-$titulo = $_POST['titulo'];
-$nota = $_POST['nota'];
-$resenha = $_POST['resenha'];
-$url = $_POST['url'];
-$categoria = $_POST['categoria'];
+$lista = json_decode($_POST['lista'], true);
 
-$sql = "INSERT INTO dados (id_usuario, nome, nota, categoria, comentario, imagem) 
-VALUES ('$id', '$titulo', '$nota', '$categoria', '$resenha', '$url')";
-
-if (mysqli_query($conexao, $sql)) {
-    echo "salvo";
-} else {
-    echo "erro";
+if (!$lista) {
+    echo "erro-lista";
+    exit;
 }
+
+$conexao->query("DELETE FROM dados WHERE id_usuario = '$id'");
+
+foreach ($lista as $f) {
+    $titulo = $f["titulo"];
+    $nota = $f["nota"];
+    $resenha = $f["resenha"];
+    $url = $f["url"];
+    $categoria = $f["categoria"];
+
+    $sql = "INSERT INTO dados (id_usuario, nome, nota, categoria, comentario, imagem) 
+            VALUES ('$id', '$titulo', '$nota', '$categoria', '$resenha', '$url')";
+
+    mysqli_query($conexao, $sql);
+}
+
+echo "sincronizado";
 ?>
