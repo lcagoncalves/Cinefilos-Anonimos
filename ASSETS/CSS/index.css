@@ -397,3 +397,58 @@ footer {
     color: white;
     text-decoration: none;
 }
+
+@media (max-width: 768px) {
+
+    #menu-burguer {
+        font-size: 2.2rem;
+    }
+
+    main {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    main section article img {
+        width: 150px;
+        height: 230px;
+    }
+
+    .lista-itens {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    #pesquisa {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #menu-burguer {
+        font-size: 2rem;
+        top: 10px;
+    }
+
+    #titulo {
+        font-size: 2rem;
+        padding: 10px 0;
+    }
+
+    main {
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    main section article img {
+        width: 120px;
+        height: 180px;
+    }
+
+    #pesquisa {
+        width: 90%;
+        max-width: none;
+        margin: auto;
+    }
+}

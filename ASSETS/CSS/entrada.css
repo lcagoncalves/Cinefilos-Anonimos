@@ -152,3 +152,43 @@ main section a {
 main section:first-of-type {
     padding-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+
+    #mascote {
+        width: 200px;
+    }
+
+    main section {
+        width: 90%;
+        padding: 40px 15px;
+    }
+
+    main section button {
+        width: 80%;
+        max-width: 350px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #mascote {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    main section {
+        width: 95%;
+        padding: 25px 10px;
+    }
+
+    main section button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 15px;
+    }
+}

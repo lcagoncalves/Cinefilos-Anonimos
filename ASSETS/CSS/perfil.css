@@ -204,6 +204,12 @@ footer {
     border-radius: 0px 0px 10px 10px;
     width: 100%;
 }
+
+.escondido {
+    opacity: 0%;
+    left: 200% !important; 
+}
+
 #menu-burguer {
     position: absolute;
     right: 20px;
@@ -216,6 +222,7 @@ footer {
     transition: 0.3s;
     z-index: 20;
 }
+
 #felicidade {
     background-color: #cc4218a2;
     text-decoration: solid;
@@ -234,4 +241,61 @@ h2{
     background-color: #6e2711a2;
     
 
+}
+
+#menu > ul > li > button, #menu > ul > li > a {
+    background-color: #fc0c0c00;
+    border: none;
+    width: 200px;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+    main {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 10px auto;
+        gap: 20px;
+    }
+
+    main section:first-child {
+        min-height: 450px;
+        padding: 20px;
+    }
+
+    main section article img {
+        width: 110px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 2rem;
+        padding: 10px 0;
+    }
+
+    main {
+        padding: 0 5px;
+        gap: 15px;
+    }
+
+    main section:first-child img {
+        width: 120px;
+        height: 120px;
+    }
+
+    main section:first-child {
+        padding: 15px;
+    }
+
+    main section article img {
+        width: 100px;
+        height: 140px;
+    }
 }

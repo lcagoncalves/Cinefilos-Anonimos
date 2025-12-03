@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['erro'])) {
+    echo "<script>alert('" . $_SESSION['erro'] . "');</script>";
+    unset($_SESSION['erro']);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
